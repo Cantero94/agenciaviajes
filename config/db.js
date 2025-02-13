@@ -19,4 +19,5 @@ const db = new Sequelize(process.env.CONEXION, {
     },
     operatorsAliases: false
 });
+
 export default db;

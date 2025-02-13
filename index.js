@@ -35,3 +35,4 @@ app.listen(port, () => {console.log(`Servidor corriendo en el puerto: ${port}, h
 
 
 //"dev": "nodemon src/index.js"
+// "start": "index.js"
