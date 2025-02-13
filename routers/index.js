@@ -1,6 +1,6 @@
 import express from 'express';
-import {paginaInicio, guardarCompra, paginaComprar, paginaNosotros,
-    paginaTestimonios, paginaViajes, paginaDetallesViajes, guardarTestimonios} from "../controllers/paginaController.js";
+import {paginaInicio, guardarCompra, paginaComprar, paginaNosotros, paginaTestimonios, crearViaje,
+     paginaViajes, paginaDetallesViajes, guardarTestimonios} from "../controllers/paginaController.js";
 
 const router = express.Router();
 
@@ -15,6 +15,8 @@ router.get('/viajes',paginaViajes);
 
 //Los dos puntos es como un comodín y no repetir las páginas
 router.get('/viajes/:slug',paginaDetallesViajes);
+
+router.post('/modal_viaje', crearViaje);
 
 router.get('/comprar/:slug',paginaComprar);
 

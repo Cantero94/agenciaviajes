@@ -24,6 +24,7 @@ block contenido
                         path(d='M10.01 17h.005')
                     // Aquí usamos `moment` para formatear la fecha
                     | #{moment(resultado.fecha_ida).format('DD/MM/YYYY')} - #{moment(resultado.fecha_vuelta).format('DD/MM/YYYY')}
+                    //- | #{resultado.fechaIda.toLocaleDateString(navigator.language)} - #{resultado.toLocaleDateString(navigator.language)}
                     p
                     svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' fill='none' stroke='red' stroke-linecap='round' stroke-linejoin='round' width='24' height='24' stroke-width='2')
                         path(d='M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0')

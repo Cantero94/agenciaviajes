@@ -57,6 +57,74 @@ const paginaDetallesViajes = async (req, res) => {
   }
 };
 
+const crearViaje = async (req, res) => {
+  const { titulo, precio, disponibles, fecha_ida, fecha_vuelta, imagen, slug, descripcion } = req.body;
+  const errores = [];
+  if (titulo.trim() === "") {
+    errores.push({ mensaje: "El título está vacío" });
+  }
+  if (precio.trim() === "") {
+    errores.push({ mensaje: "El precio está vacío" });
+  }
+  if (disponibles.trim() === "") {
+    errores.push({ mensaje: "El número de plazas disponibles está vacío" });
+  }
+  if (fecha_ida.trim() === "") {
+    errores.push({ mensaje: "La fecha de ida está vacía" });
+  }
+  if (fecha_vuelta.trim() === "") {
+    errores.push({ mensaje: "La fecha de vuelta está vacía" });
+  }
+  if (imagen.trim() === "") {
+    errores.push({ mensaje: "La imagen está vacía" });
+  }
+  if (slug.trim() === "") {
+    errores.push({ mensaje: "El slug está vacío" });
+  }
+  if (descripcion.trim() === "") {
+    errores.push({ mensaje: "La descripción está vacía" });
+  }
+  // Check if slug already exists
+  const existingViaje = await Viaje.findOne({ where: { slug } });
+  if (existingViaje) {
+    errores.push({ mensaje: "El slug ya existe" });
+  }
+
+  if (errores.length > 0) {
+    const viajes = await Viaje.findAll(); // Obtener todos los viajes para renderizar la vista correctamente
+    res.render("viajes", {
+      pagina: "Viajes Disponibles",
+      errores,
+      titulo,
+      precio,
+      disponibles,
+      fecha_ida,
+      fecha_vuelta,
+      imagen,
+      slug,
+      descripcion,
+      viajes,
+      moment
+    });
+  } else {
+    try {
+      await Viaje.create({
+        titulo,
+        precio,
+        disponibles,
+        fecha_ida,
+        fecha_vuelta,
+        imagen,
+        slug,
+        descripcion
+      });
+      res.redirect("/viajes");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+};
+
 const paginaComprar = async (req, res) => {
   // req.params te va a dar los :slug que ponemos al pasarlo del router
   const { slug } = req.params;
@@ -249,4 +317,5 @@ export {
   guardarTestimonios,
   guardarCompra,
   paginaComprar,
+  crearViaje
 };
