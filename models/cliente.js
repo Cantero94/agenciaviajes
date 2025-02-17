@@ -18,7 +18,6 @@ export const Cliente = db.define('cliente', {
     correoelectronico: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true, // Para asegurar que no haya correos duplicados
     },
     telefono: {
         type: Sequelize.STRING,

@@ -84,16 +84,22 @@ const crearViaje = async (req, res) => {
   if (descripcion.trim() === "") {
     errores.push({ mensaje: "La descripción está vacía" });
   }
-  // Check if slug already exists
+  // Comprobamos que el slug sea único
   const existingViaje = await Viaje.findOne({ where: { slug } });
   if (existingViaje) {
     errores.push({ mensaje: "El slug ya existe" });
   }
+  // Comprobamos que el precio o las plazas disponibles sea un número
+  if (isNaN(precio) || isNaN(disponibles)) {
+    errores.push({ mensaje: "El precio debe ser un número" });
+  }
+  
 
   if (errores.length > 0) {
-    const viajes = await Viaje.findAll(); // Obtener todos los viajes para renderizar la vista correctamente
+    const viajes = await Viaje.findAll();
     res.render("viajes", {
       pagina: "Viajes Disponibles",
+      viajes,
       errores,
       titulo,
       precio,
@@ -103,7 +109,6 @@ const crearViaje = async (req, res) => {
       imagen,
       slug,
       descripcion,
-      viajes,
       moment
     });
   } else {

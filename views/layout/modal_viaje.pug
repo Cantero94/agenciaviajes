@@ -13,7 +13,7 @@
                 form(action="/modal_viaje", method="POST")
                     .mb-3
                         label(for="titulo") Título
-                        input.form-control(type="text", id="titulo", name="titulo", value=titulo, required)
+                        input.form-control(type="text", id="titulo", name="titulo", value=titulo)
                     .mb-3
                         .row
                             .col
@@ -21,7 +21,7 @@
                                 .input-group
                                     span.input-group-text
                                         | €
-                                    input.form-control(type="text", id="precio", name="precio", value=precio, required)
+                                    input.form-control(type="text", id="precio", name="precio", value=precio)
                             .col
                                 label(for="disponibles") Disponibles
                                 .input-group
@@ -29,26 +29,26 @@
                                         svg(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 24 24' fill='none' stroke='red' stroke-linecap='round' stroke-linejoin='round' width='16' height='16' stroke-width='2')
                                             path(d='M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0')
                                             path(d='M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0')
-                                    input.form-control(type="text", id="disponibles", name="disponibles", value=disponibles, required)
+                                    input.form-control(type="text", id="disponibles", name="disponibles", value=disponibles)
                     .mb-3
                         .row
                             .col
                                 label(for="fecha_ida") Fecha de Ida
-                                input.form-control(type="date", id="fecha_ida", name="fecha_ida", value=fecha_ida, required)
+                                input.form-control(type="date", id="fecha_ida", name="fecha_ida", value=fecha_ida)
                             .col
                                 label(for="fecha_vuelta") Fecha de Vuelta
-                                input.form-control(type="date", id="fecha_vuelta", name="fecha_vuelta", value=fecha_vuelta, required)
+                                input.form-control(type="date", id="fecha_vuelta", name="fecha_vuelta", value=fecha_vuelta)
                     .mb-3
                         .row
                             .col
                                 label(for="imagen") Imagen
-                                input.form-control(type="text", id="imagen", name="imagen", value=imagen, required)
+                                input.form-control(type="text", id="imagen", name="imagen", value=imagen)
                             .col
                                 label(for="slug") Slug
-                                input.form-control(type="text", id="slug", name="slug", value=slug, required)
+                                input.form-control(type="text", id="slug", name="slug", value=slug)
                     .mb-3
                         label(for="descripcion") Descripción
-                        textarea.form-control(id="descripcion", name="descripcion", required)= descripcion
+                        textarea.form-control(id="descripcion", name="descripcion")= descripcion
                     .mb-3.text-end
                         button.btn.btn-danger(type="submit") Guardar Viaje
 
@@ -58,4 +58,9 @@ script.
         const titulo = this.value;
         const slug = titulo.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
         document.getElementById('slug').value = `viaje-${slug}`;
+    });
+    document.getElementById('viajeForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Aquí puedes agregar validaciones adicionales si es necesario
+    this.submit();
     });
