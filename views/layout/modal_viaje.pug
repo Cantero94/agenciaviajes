@@ -59,8 +59,3 @@ script.
         const slug = titulo.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
         document.getElementById('slug').value = `viaje-${slug}`;
     });
-    document.getElementById('viajeForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Aquí puedes agregar validaciones adicionales si es necesario
-    this.submit();
-    });
