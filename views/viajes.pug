@@ -12,3 +12,10 @@ block contenido
     main.container.mt-3
         include ./layout/layaout_viajes
     include ./layout/modal_viaje
+    // Script para abrir el modal si showModal es verdadero
+    if showModal
+        script.
+            document.addEventListener('DOMContentLoaded', function() {
+                var myModal = new bootstrap.Modal(document.getElementById('addViajeModal'));
+                myModal.show();
+            });

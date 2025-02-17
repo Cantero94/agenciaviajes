@@ -93,7 +93,6 @@ const crearViaje = async (req, res) => {
   if (isNaN(precio) || isNaN(disponibles)) {
     errores.push({ mensaje: "El precio debe ser un número" });
   }
-  
 
   if (errores.length > 0) {
     const viajes = await Viaje.findAll();
@@ -109,7 +108,8 @@ const crearViaje = async (req, res) => {
       imagen,
       slug,
       descripcion,
-      moment
+      moment,
+      showModal: true // Mostrar el modal si hay errores
     });
   } else {
     try {
