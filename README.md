@@ -29,10 +29,11 @@ Se ha añadido la funcionalidad para crear un nuevo viaje en el proyecto. Esta f
     ```javascript
     // paginaController.js > crearViaje
     if (errores.length > 0) {
-    const viajes = await Viaje.findAll();
-    res.render("viajes", {
-        ...
-        showModal: true
+        const viajes = await Viaje.findAll();
+        res.render("viajes", {
+            ...
+            showModal: true
+        });
     }
 
     // viajes.pug
