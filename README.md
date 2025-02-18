@@ -27,7 +27,7 @@ Se ha añadido la funcionalidad para crear un nuevo viaje en el proyecto. Esta f
     ```
     El controlador valida los datos y, si hay errores, redirige a la vista mostrando el modal con los errores. Para esto es importante pasarle una variable de control que reconozca el script de la vista y reabra el modal con los mensajes de error, ya que sino se recargará la vista con el modal cerrado.
     ```javascript
-    // paginaController.js > crearViaje
+    // paginaController.js > crearViaje()
     if (errores.length > 0) {
         const viajes = await Viaje.findAll();
         res.render("viajes", {
