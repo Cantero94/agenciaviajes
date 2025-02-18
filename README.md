@@ -13,7 +13,7 @@ Se ha añadido la funcionalidad para crear un nuevo viaje en el proyecto. Esta f
 ```javascript
 router.post('/modal_viaje', crearViaje);
 ```
-    El controlador valida los datos y, si hay errores, redirige a la vista mostrando el modal con los errores. Si no hay errores, añade el viaje y muestra la vista de los viajes actualizada.
+El controlador valida los datos y, si hay errores, redirige a la vista mostrando el modal con los errores. Si no hay errores, añade el viaje y muestra la vista de los viajes actualizada.
 
 ### URL del Proyecto Desplegado
 Puedes ver el proyecto desplegado en la siguiente URL: [https://agenciaviajes-v5il.onrender.com/viajes](https://agenciaviajes-v5il.onrender.com/viajes)
