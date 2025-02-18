@@ -35,7 +35,8 @@ Se ha añadido la funcionalidad para crear un nuevo viaje en el proyecto. Esta f
             showModal: true
         });
     }
-
+    ```
+    ```javascript
     // viajes.pug
     if showModal
         script.
