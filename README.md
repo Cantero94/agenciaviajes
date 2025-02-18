@@ -18,5 +18,23 @@ Se ha añadido la funcionalidad para crear un nuevo viaje en el proyecto. Esta f
     ```javascript
     router.post('/modal_viaje', crearViaje);
     ```
-    El controlador valida los datos y, si hay errores, redirige a la vista mostrando el modal con los errores. Si no hay errores, añade el viaje y muestra la vista de los viajes actualizada.
+    El controlador valida los datos y, si hay errores, redirige a la vista mostrando el modal con los errores. Para esto es importante pasarle una variable de control que reconozca el script de la vista y reabra el modal con los mensajes de error, ya que sino se recargará la vista con el modal cerrado.
+    ```javascript
+    // paginaController.js > crearViaje
+    if (errores.length > 0) {
+    const viajes = await Viaje.findAll();
+    res.render("viajes", {
+        ...
+        showModal: true
+    }
+
+    // viajes.pug
+    if showModal
+        script.
+            document.addEventListener('DOMContentLoaded', function() {
+                var myModal = new bootstrap.Modal(document.getElementById('addViajeModal'));
+                myModal.show();
+            });
+    ```
+    Si no hay errores, añade el viaje y muestra la vista de los viajes actualizada.
 
