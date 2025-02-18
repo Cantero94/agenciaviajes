@@ -15,6 +15,7 @@ Se ha añadido la funcionalidad para crear un nuevo viaje en el proyecto. Esta f
 La ruta para manejar la creación de un nuevo viaje está definida en el archivo [index.js](routers/index.js) de la siguiente manera:
 ```javascript
 router.post('/modal_viaje', crearViaje);
+```
 
 ### URL del Proyecto Desplegado
 Puedes ver el proyecto desplegado en la siguiente URL: [https://agenciaviajes-v5il.onrender.com/viajes](https://agenciaviajes-v5il.onrender.com/viajes)
