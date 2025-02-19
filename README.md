@@ -8,7 +8,7 @@ Este proyecto es una prueba y actualización del proyecto visto en clase para pr
 Se ha añadido la funcionalidad para crear un nuevo viaje en el proyecto. Esta funcionalidad incluye un botón en la vista `viajes.pug` que abre un modal (`modal_viaje.pug`) con un formulario para ingresar los detalles del viaje.
 
 ### URL del Proyecto Desplegado
-[Agencia de Viajes + Crear Viaje](https://agenciaviajes-v5il.onrender.com/viajes)
+[Agencia de Viajes + Crear Viaje](https://agenciaviajes-v5il.onrender.com)
 
 ### Detalles de la Funcionalidad
 1. **Botón para Añadir Viaje**: En la vista [viajes.pug](views/viajes.pug), se ha añadido un botón que abre un modal para crear un nuevo viaje.
