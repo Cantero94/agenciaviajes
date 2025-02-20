@@ -7,7 +7,7 @@ import nodemailer from "nodemailer";
 const paginaInicio = async (req, res) => {
   const promiseDB = [];
   //Con esto hacemos dos consultas en paralelo
-  promiseDB.push(Viaje.findAll({ limit: 3 }));
+  promiseDB.push(Viaje.findAll({ limit: 3, order: [["Id", "DESC"]]}));
   promiseDB.push(Testimonial.findAll({ limit: 3, order: [["Id", "DESC"]]}));
 
   try {
